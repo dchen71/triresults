@@ -38,6 +38,7 @@ class Point
   	end
   end
 
+  #Update to database friendly form
   def self.evolve object
   	case object
   		when nil then nil

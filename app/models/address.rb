@@ -37,6 +37,7 @@ class Address
   	end
   end
 
+  #Convert object to database friendly form
   def self.evolve object
   	case object
   		when nil then nil
