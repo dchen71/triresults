@@ -3,9 +3,9 @@ class Address
 
   #initialize Address class
   def initialize(params)
-    @city = params[:city]
-    @state = params[:state]
-    @location = params[:location]
+    @city = params[:city] if !params[:city].nil?
+    @state = params[:state] if !params[:state].nil?
+    @location = params[:loc] if !params[:loc].nil?
   end
 
   #Converts point into mongo hash
@@ -30,8 +30,10 @@ class Address
   def self.demongoize object
   	case object
   		when nil then nil
-  		when Hash then Point.new(object)
-  		when Address then Point
+  		when Hash 
+        loc = object[:loc].nil? ? nil : Point.new(object[loc])
+        Address.new(city: object[:city], state: object[:state], loc: loc)
+  		when Address then Address
   	end
   end
 
