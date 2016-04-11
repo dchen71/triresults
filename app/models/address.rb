@@ -31,7 +31,7 @@ class Address
   	case object
   		when nil then nil
   		when Hash 
-        loc = object[:loc].nil? ? nil : Point.new(object[loc])
+        loc = object[:loc].nil? ? nil : Point.new(object[:loc])
         Address.new(city: object[:city], state: object[:state], loc: loc)
   		when Address then Address
   	end
