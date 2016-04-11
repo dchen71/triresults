@@ -1,5 +1,5 @@
-class Point
-  attr_accessor :longitude, :latitude
+class Address
+  attr_accessor :city, :state, :location
 
   #initialize Point class
   def initialize(params)
