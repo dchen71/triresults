@@ -12,12 +12,13 @@ class Point
     end
   end
 
-  #Converts point into GEOJSON hash
-  def to_hash
+  #Converts point into mongo hash
+  def mongoize
   	{
   		:type =>"Point",
   		:coordinates => [@longitude, @latitude]
   	}
   end
+
 
 end
