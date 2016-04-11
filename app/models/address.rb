@@ -1,11 +1,11 @@
 class Address
   attr_accessor :city, :state, :location
 
-  #initialize Point class
+  #initialize Address class
   def initialize(params)
     @city = params[:city]
     @state = params[:state]
-    @location = Point.new(params[:location])
+    @location = params[:location]
   end
 
   #Converts point into mongo hash
@@ -22,7 +22,7 @@ class Address
   	case object
   		when nil then nil
   		when Hash then object
-  		when Point then puts object.mongoize; object.mongoize
+  		when Address then object.mongoize
   	end
   end
 
@@ -31,7 +31,7 @@ class Address
   	case object
   		when nil then nil
   		when Hash then Point.new(object)
-  		when Point then Point
+  		when Address then Point
   	end
   end
 
@@ -39,7 +39,7 @@ class Address
   	case object
   		when nil then nil
   		when Hash then object
-  		when Point then puts object.mongoize; object.mongoize
+  		when Address then object.mongoize
   	end
   end
 
