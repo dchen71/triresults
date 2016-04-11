@@ -15,13 +15,30 @@ class Point
   #Converts point into mongo hash
   def mongoize
   	{
-  		:type =>"Point",
+  		:type => "Point",
   		:coordinates => [@longitude, @latitude]
   	}
   end
 
-  #Error checking object data
+  #Return mongo object as ruby hash
   def self.mongoize object
+  	case object
+  		when nil then nil
+  		when Hash then object
+  		when Point then puts object.mongoize; object.mongoize
+  	end
+  end
+
+  #Returns instance of class
+  def self.demongoize object
+  	case object
+  		when nil then nil
+  		when Hash then Point.new(object)
+  		when Point then Point
+  	end
+  end
+
+  def self.evolve object
   	case object
   		when nil then nil
   		when Hash then object
