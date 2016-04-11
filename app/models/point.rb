@@ -20,5 +20,13 @@ class Point
   	}
   end
 
+  #Error checking object data
+  def self.mongoize object
+  	case object
+  		when nil then nil
+  		when Hash then object
+  		when Point then puts object.mongoize; object.mongoize
+  	end
+  end
 
 end
