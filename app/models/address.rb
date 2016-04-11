@@ -3,20 +3,17 @@ class Address
 
   #initialize Point class
   def initialize(params)
-    if !params[:coordinates].nil?
-      @longitude = params[:coordinates][0]
-      @latitude = params[:coordinates][1]
-    else
-      @longitude = params[:lng]
-      @latitude = params[:lat]
-    end
+    @city = params[:city]
+    @state = params[:state]
+    @location = Point.new(params[:location])
   end
 
   #Converts point into mongo hash
   def mongoize
   	{
-  		:type => "Point",
-  		:coordinates => [@longitude, @latitude]
+  		:city => @city,
+  		:state => @state,
+      :loc => @location
   	}
   end
 
