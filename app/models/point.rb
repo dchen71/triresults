@@ -25,7 +25,7 @@ class Point
   	case object
   		when nil then nil
   		when Hash then object
-  		when Point then puts object.mongoize; object.mongoize
+  		when Point then object.mongoize
   	end
   end
 
@@ -42,8 +42,8 @@ class Point
   def self.evolve object
   	case object
   		when nil then nil
-  		when Hash then object
-  		when Point then puts object.mongoize; object.mongoize
+  		when Hash then Point.new(object).mongoize
+  		when Point then object.mongoize
   	end
   end
 
