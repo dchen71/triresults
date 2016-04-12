@@ -13,7 +13,7 @@ class Address
   	{
   		:city => @city,
   		:state => @state,
-      :loc => @location
+      :loc => @location.mongoize
   	}
   end
 
