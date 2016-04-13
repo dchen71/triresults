@@ -1,17 +1,17 @@
-class Address
+class Placing
   attr_accessor :name, :place
 
-  #initialize Address class
+  #initialize Placing class
   def initialize(params)
-    @name = params[:name] if !params[:city].nil?
-    @place = params[:state] if !params[:place].nil?
+    @name = params[:name] if !params[:name].nil?
+    @place = params[:place] if !params[:place].nil?
   end
 
   #Converts point into mongo hash
   def mongoize
     {
       :name => @name,
-      :place => @place.mongoize
+      :place => @place
     }
   end
 
@@ -28,9 +28,7 @@ class Address
   def self.demongoize object
     case object
       when nil then nil
-      when Hash 
-        loc = object[:loc].nil? ? nil : Point.new(object[:loc])
-        Address.new(city: object[:city], state: object[:state], loc: loc)
+      when Hash then Placing.new(object)
       when Address then Address
     end
   end
