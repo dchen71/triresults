@@ -20,7 +20,7 @@ class Placing
     case object
       when nil then nil
       when Hash then object
-      when Address then object.mongoize
+      when Placing then object.mongoize
     end
   end
 
@@ -29,7 +29,7 @@ class Placing
     case object
       when nil then nil
       when Hash then Placing.new(object)
-      when Address then Address
+      when Placing then Placing
     end
   end
 
@@ -38,7 +38,7 @@ class Placing
     case object
       when nil then nil
       when Hash then object
-      when Address then object.mongoize
+      when Placing then object.mongoize
     end
   end
 
