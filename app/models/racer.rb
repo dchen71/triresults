@@ -1,6 +1,15 @@
 class Racer
   include Mongoid::Document
 
+  embeds_one :info, class_name: 'RacerInfo', autobuild: true, as: :parent
+
+  delegate :first_name, :first_name=, to: :info
+  delegate :last_name, :last_name=, to: :info
+  delegate :gender, :gender=, to: :info
+  delegate :birth_year, :birth_year=, to: :info
+  delegate :city, :city=, to: :info
+  delegate :state, :state=, to: :info
+
   #Add in local id to info id
   before_create do |racer|
   	racer.info.id = racer.id
