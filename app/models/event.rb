@@ -8,6 +8,8 @@ class Event
 
   embedded_in :parent, polymorphic: true, touch: true
 
+  validates_presence_of :order, :name
+
   #Convert to meters
   def meters
   	if self.d
