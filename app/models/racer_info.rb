@@ -12,6 +12,6 @@ class RacerInfo
   embedded_in :parent, polymorphic: true
 
   validates_presence_of :first_name, :last_name, :gender_name, :birth_year
-  validates :gender, inclusion: {in: ['M', 'F']}
+  validates :gender, inclusion: {in: %w(M F)}
   validates :birth_year, numericality: {less_than: Time.now.year}
 end
