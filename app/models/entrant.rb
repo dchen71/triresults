@@ -20,4 +20,9 @@ class Entrant
   		total + result.secs.to_i
   	end
   end
+
+  #Getter for race
+  def the_race
+  	self.race.race
+  end
 end
