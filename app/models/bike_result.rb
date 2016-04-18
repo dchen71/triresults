@@ -5,8 +5,8 @@ class BikeResult < LegResult
 
    def calc_ave
    	if event && secs
-    	meters = event.meters
-    	self.my_ave=meters.nil? ? nil : 12.1
+    	miles = event.miles
+    	self.mph = miles.nil? ? nil : miles * 3600 / secs
    	end
    end
 end

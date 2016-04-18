@@ -6,7 +6,7 @@ class SwimResult < LegResult
   def calc_ave
   	if event && secs
 	  meters = event.meters
-	  self.my_ave=meters.nil? ? nil : 12.1
+	  self.pace_100 = meters.nil? ? nil : self.secs/(meters/100)
   	end
   end
 end
