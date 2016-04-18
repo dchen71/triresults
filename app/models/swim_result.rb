@@ -1,3 +1,3 @@
-class SwimResult
+class SwimResult < LegResult
   include Mongoid::Document
 end
