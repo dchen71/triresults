@@ -9,5 +9,12 @@ class Entrant
   field :gender,  type: Placing
   field :group, type: Placing
 
-  embeds_many :results, class_name: "LegResult"
+  embeds_many :results, class_name: "LegResult", after_add: :update_total
+
+  #Callback to update time
+  def update_total(result)
+  	self.secs = results.reduce(0) do |total, result|
+  		total + result.secs.to_i
+  	end
+  end
 end
