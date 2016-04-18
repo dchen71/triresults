@@ -3,6 +3,8 @@ class LegResult
 
   field :secs, type: Float
 
+  embedded_in :entrant, class_name: "Entrant"
+
   def calc_ave
   	#subclasses will calc event-specific ave
   end
