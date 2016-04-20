@@ -11,7 +11,7 @@ class Entrant
 
   embeds_many :results, class_name: "LegResult", after_add: :update_total
   embeds_one :race, class_name: "RaceRef"
-  
+  embeds_one :racer, class_name: "RacerInfo", as: :parent  
 
 
   #Callback to update time
